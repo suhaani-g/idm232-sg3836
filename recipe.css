@@ -60,9 +60,12 @@ nav ul li a:hover {
 }
 
 .recipe-image img {
-    max-width: 100%;
+    max-width: 70%;  
     border-radius: 8px;
+    display: block;
+    margin: 0 auto; 
 }
+
 
 .recipe-info {
     max-width: 50%;
