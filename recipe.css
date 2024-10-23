@@ -1,0 +1,148 @@
+/* Global Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;500&family=Roboto:wght@300;400&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f7f7f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Roboto', monospace;
+    font-weight: 100;
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Recipe Hero Section */
+.recipe-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recipe-image img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.recipe-info {
+    max-width: 50%;
+    padding-left: 40px;
+}
+
+.recipe-info h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.recipe-info p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.recipe-meta p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+/* Recipe Details Section */
+.recipe-details {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.ingredients, .preparation {
+    width: 45%;
+}
+
+.ingredients h2, .preparation h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.ingredients ul, .preparation ol {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #666;
+}
+
+footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recipe-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .recipe-info {
+        max-width: 100%;
+        padding-left: 0;
+    }
+
+    .recipe-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ingredients, .preparation {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
