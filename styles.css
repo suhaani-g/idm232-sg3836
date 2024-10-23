@@ -1,0 +1,249 @@
+/* Global Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;500&family=Roboto:wght@300;400&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f7f7f5; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+/* Nav Bar */
+nav {
+    background-color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Roboto', monospace;
+    font-weight: 100; /* Roboto Mono Thin */
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 100;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300; /* Roboto Light */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    max-width: 45%;
+    height: auto;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Mobile View - Hero Image Behind and Darkened */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        padding: 0;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        z-index: 2;
+        padding: 20px;
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .hero-content h1, .hero-content p {
+        color: white;
+    }
+}
+
+/* Search Bar */
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 12px;
+    width: 70%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.search-bar button:hover {
+    background-color: #333;
+}
+
+/* Recipe Cards Section */
+.recipe-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.recipe-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recipe-card h2 {
+    font-family: 'Roboto', monospace;
+    font-weight: 500; /* Roboto Mono Medium */
+    font-size: 1.4rem;
+    color: #111;
+    margin-top: 15px;
+}
+
+.recipe-card p {
+    font-size: 1rem;
+    font-weight: 300; /* Roboto Light */
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .search-bar input {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}
