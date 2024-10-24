@@ -1,0 +1,139 @@
+/* Global Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;500&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f7f7f5; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+/* Nav Bar */
+nav {
+    background-color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Roboto', monospace;
+    font-weight: 100; 
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* No Results Page */
+.no-results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    text-align: center;
+    background-color: #f7f7f5; 
+    padding: 20px;
+}
+
+.no-results-container h1 {
+    font-family: 'Forum', monospace;
+    font-size: 3rem; 
+    margin-bottom: 20px;
+    color: #333; 
+}
+
+.no-results-container p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1.3rem; 
+    color: #666; 
+    margin-bottom: 40px; 
+}
+
+.no-results-container h1, .no-results-container p {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .no-results-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .no-results-container p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .no-results-container h1 {
+        font-size: 2rem;
+    }
+
+    .no-results-container p {
+        font-size: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+}

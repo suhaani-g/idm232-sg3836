@@ -58,14 +58,14 @@ nav ul li a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 50px 20px;
-    align-items: flex-start; /* Align items at the start to make them even */
+    align-items: flex-start; 
 }
 
 /* Filter Sidebar */
 .filter-sidebar {
-    width: 20%; /* Adjust width to make the sidebar smaller */
-    padding-right: 50px; /* Slightly reduce padding */
-    margin-top: 10px; /* Add a small margin to align it better with the recipe cards */
+    width: 20%; 
+    padding-right: 50px; 
+    margin-top: 10px; 
 }
 
 .filter-sidebar h2 {
@@ -93,15 +93,14 @@ nav ul li a:hover {
 
 /* Recipe Cards Section */
 .recipe-cards-section {
-    width: 80%; /* Adjust width to accommodate smaller sidebar */
+    width: 80%; 
 }
 
 .recipe-cards-section h1 {
     font-family: 'Forum', monospace;
     font-size: 2.5rem;
-    margin-bottom: 50px; /* Increased space under "Browse All Recipes" */
+    margin-bottom: 50px; 
 }
-
 .recipe-cards-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5 recipe cards per row */
@@ -158,19 +157,19 @@ footer {
 /* Responsive Design */
 @media (max-width: 1200px) {
     .recipe-cards-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+        grid-template-columns: repeat(4, 1fr); 
     }
 }
 
 @media (max-width: 992px) {
     .recipe-cards-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 
 @media (max-width: 768px) {
     .recipe-cards-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller tablets */
+        grid-template-columns: repeat(2, 1fr); 
     }
 
     .browse-recipes-container {
@@ -189,6 +188,6 @@ footer {
 
 @media (max-width: 576px) {
     .recipe-cards-grid {
-        grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
+        grid-template-columns: repeat(1, 1fr); 
     }
 }

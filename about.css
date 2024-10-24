@@ -1,0 +1,160 @@
+
+
+/* Global Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;500&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f7f7f5; 
+    color: #333; 
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Roboto', monospace;
+    padding: 10px 15px;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #000; 
+    margin: 50px 0; 
+}
+/* About Page Layout */
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-hero h1 {
+    font-family: 'Forum', monospace;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding: 20px 0;
+}
+
+.about-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 60px;
+}
+
+.about-text h2 {
+    font-family: 'Forum', monospace;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-weight: 100;
+    font-size: 1.1rem;
+    color: #555;
+
+}
+
+.about-image {
+    flex: 1;
+    max-width: 30%; 
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+
+    .about-content.reverse {
+        flex-direction: column;
+    }
+}

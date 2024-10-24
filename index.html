@@ -10,7 +10,7 @@
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="allrecipes.html">All Recipes</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="#">Help</a></li>
     </ul>
 </nav>
@@ -20,8 +20,10 @@
             <h1>Discover Delicious Recipes</h1>
             <p>Discover dishes in our collection of recipes.</p>
             <div class="search-bar">
-                <input type="text" placeholder="Search recipes..." aria-label="Search">
-                <button>Search</button>
+                <form action="no-results.html" method="get"> 
+                    <input type="text" placeholder="Search recipes..." aria-label="Search" name="query">
+                    <button type="submit">Search</button>
+                </form>
             </div>
         </div>
         <div class="hero-img">
