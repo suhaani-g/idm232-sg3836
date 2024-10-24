@@ -64,8 +64,9 @@ nav ul li a:hover {
 /* Filter Sidebar */
 .filter-sidebar {
     width: 20%; 
-    padding-right: 50px; 
+    padding-right: 30px; 
     margin-top: 10px; 
+    border-right: 1px solid #ccc;
 }
 
 .filter-sidebar h2 {
@@ -93,7 +94,8 @@ nav ul li a:hover {
 
 /* Recipe Cards Section */
 .recipe-cards-section {
-    width: 80%; 
+    width: 80%;
+    padding: 30px;
 }
 
 .recipe-cards-section h1 {
@@ -131,16 +133,22 @@ nav ul li a:hover {
 .recipe-card h2 {
     font-family: 'Roboto', monospace;
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: #111;
     margin-top: 15px;
+    
 }
 
 .recipe-card p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 300;
     color: #666;
     margin-top: 10px;
+    padding: 10px;
+}
+.recipe-card a {
+    text-decoration: none; 
+    color: inherit; 
 }
 
 /* Footer */
