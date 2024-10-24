@@ -52,27 +52,34 @@ nav ul li a:hover {
 }
 
 /* Main Layout */
+/* Main Layout */
 .browse-recipes-container {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
     padding: 50px 20px;
+    align-items: flex-start; /* Align items at the start to make them even */
 }
 
 /* Filter Sidebar */
 .filter-sidebar {
-    width: 25%;
-    padding-right: 30px;
+    width: 20%; /* Adjust width to make the sidebar smaller */
+    padding-right: 50px; /* Slightly reduce padding */
+    margin-top: 10px; /* Add a small margin to align it better with the recipe cards */
 }
 
 .filter-sidebar h2 {
-    font-family: 'Forum', monospace;
-    font-size: 1.8rem;
+    font-family: 'Roboto', monospace;
+    font-weight: 400;
+    font-size: 1.4rem;
     margin-bottom: 20px;
+    padding-top: 50px;
 }
 
 .filter-option h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-family: 'Roboto', monospace;
+    font-weight: 200;
     margin-bottom: 5px;
 }
 
@@ -86,13 +93,13 @@ nav ul li a:hover {
 
 /* Recipe Cards Section */
 .recipe-cards-section {
-    width: 75%;
+    width: 80%; /* Adjust width to accommodate smaller sidebar */
 }
 
 .recipe-cards-section h1 {
     font-family: 'Forum', monospace;
     font-size: 2.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 50px; /* Increased space under "Browse All Recipes" */
 }
 
 .recipe-cards-grid {
