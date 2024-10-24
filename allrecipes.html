@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse All Recipes</title>
+    <link rel="stylesheet" href="allrecipes.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="allrecipes.html">All Recipes</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="browse-recipes-container">
+        <!-- Sidebar for Filter Options -->
+        <aside class="filter-sidebar">
+            <h2>Filter Results</h2>
+            <div class="filter-option">
+                <h3>Cooking Time</h3>
+                <select>
+                    <option value="any">Any</option>
+                    <option value="under-30">Under 30 minutes</option>
+                    <option value="30-60">30-60 minutes</option>
+                    <option value="over-60">Over 60 minutes</option>
+                </select>
+            </div>
+            <div class="filter-option">
+                <h3>Meal Type</h3>
+                <select>
+                    <option value="any">Any</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+            <div class="filter-option">
+                <h3>Cuisine</h3>
+                <select>
+                    <option value="any">Any</option>
+                    <option value="asian">Asian</option>
+                    <option value="italian">Italian</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="american">American</option>
+                </select>
+            </div>
+        </aside>
+
+        <!-- Recipe Cards Section -->
+        <section class="recipe-cards-section">
+            <h1>Browse All Recipes</h1>
+            <div class="recipe-cards-grid">
+                <!-- 57 recipe cards -->
+                
+                <div class="recipe-card">
+                    <a href="recipe.html">
+                        <img src="img/placeholder.jpeg" alt="Recipe Image">
+                        <h2>Recipe Title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Cookbook. All rights reserved.</p>
+    </footer>
+</body>
+</html>

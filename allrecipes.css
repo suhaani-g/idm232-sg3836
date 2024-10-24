@@ -1,0 +1,187 @@
+/* Global Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;500&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f7f7f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Nav Bar */
+nav {
+    background-color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: 'Roboto', monospace;
+    font-weight: 100; /* Roboto Mono Thin */
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Main Layout */
+.browse-recipes-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+    width: 25%;
+    padding-right: 30px;
+}
+
+.filter-sidebar h2 {
+    font-family: 'Forum', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.filter-option h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.filter-option select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Recipe Cards Section */
+.recipe-cards-section {
+    width: 75%;
+}
+
+.recipe-cards-section h1 {
+    font-family: 'Forum', monospace;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.recipe-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 recipe cards per row */
+    gap: 20px;
+}
+
+/* Recipe Card Styles */
+.recipe-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recipe-card h2 {
+    font-family: 'Roboto', monospace;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #111;
+    margin-top: 15px;
+}
+
+.recipe-card p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: #777;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .recipe-cards-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .recipe-cards-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .recipe-cards-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller tablets */
+    }
+
+    .browse-recipes-container {
+        flex-direction: column;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .recipe-cards-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .recipe-cards-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
+    }
+}
