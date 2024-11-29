@@ -151,3 +151,91 @@ footer {
         margin-bottom: 20px;
     }
 }
+
+
+.recipe-meta {
+    margin-bottom: 20px;
+}
+
+.recipe-description {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Ingredients Section */
+.ingredients-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.ingredients-section h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.ingredients-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.ingredients-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+    color: #666;
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Steps Section */
+.steps-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.steps-section h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.step img {
+    max-width: 40%;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.step p {
+    font-size: 1rem;
+    color: #666;
+    flex: 1;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
