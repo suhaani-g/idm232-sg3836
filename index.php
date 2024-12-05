@@ -36,6 +36,10 @@ if ($query === '') {
     $stmt->bind_param("sssssss", $query, $query, $query, $query, $query, $query, $query);
     $stmt->execute();
     $result = $stmt->get_result();
+    if ($result->num_rows==0){
+        header("Location: no-results.html");
+        exit();
+    }
 }
 
 ?>
@@ -121,7 +125,5 @@ if ($query === '') {
         <p>&copy; 2024 Online Cookbook. All rights reserved.</p>
     </footer>
                    
-    
-
 </body>
 </html>
