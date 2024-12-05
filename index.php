@@ -13,11 +13,33 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to fetch first_name and last_name
-$sql = "SELECT id,recipe_name,description FROM recipes where popular=1";
-$result = $conn->query($sql);
+
+$query = isset($_GET['query']) ? trim($_GET['query']) : '';
+
+if ($query === '') {
+    // Default query for popular recipes
+    $sql = "SELECT id, recipe_name, description FROM recipes WHERE popular = 1";
+    $result = $conn->query($sql);
+} else {
+    // Prepare the query safely
+    $query = "%" . $conn->real_escape_string($query) . "%";
+    $sql = "SELECT * 
+            FROM recipes 
+            WHERE recipe_name LIKE ? 
+               OR recipe_with LIKE ? 
+               OR cuisine LIKE ? 
+               OR categories LIKE ? 
+               OR description LIKE ? 
+               OR ingredients LIKE ? 
+               OR steps LIKE ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssssss", $query, $query, $query, $query, $query, $query, $query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+}
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,12 +58,16 @@ $result = $conn->query($sql);
     </ul>
 </nav>
 <body>
+
+
+   
+    
     <header class="hero-section">
         <div class="hero-content">
             <h1>Discover Delicious Recipes</h1>
             <p>Discover dishes in our collection of recipes.</p>
             <div class="search-bar">
-                <form action="no-results.html" method="get"> 
+                <form action="index.php" method="get"> 
                     <input type="text" placeholder="Search recipes..." aria-label="Search" name="query">
                     <button type="submit">Search</button>
                 </form>
@@ -53,7 +79,8 @@ $result = $conn->query($sql);
     </header>
 
     <main>
-        <section class="recipe-cards">  
+        <section class="recipe-cards">  <!-- there are 57 cards-->
+
         <?php if (!empty($result)):
              foreach ($result as $row):
                 //$imageName=htmlspecialchars($row['recipe_name'] );
@@ -72,7 +99,8 @@ $result = $conn->query($sql);
                 $imageName=$imagePath . $imageName;
 
                 echo "<div class=\"recipe-card\">";
-                    echo "<a href=\"recipe.html\"> ";
+                echo "<a href=\"recipe.php?id=" . htmlspecialchars($row['id']) . "\">";
+                
                      echo "<img src=\"" . $imageName . "-hero.webp\"" . " alt=\"Recipe Image\">";
                      echo "<h2>";
                         echo htmlspecialchars($row['recipe_name']);
@@ -92,5 +120,8 @@ $result = $conn->query($sql);
     <footer>
         <p>&copy; 2024 Online Cookbook. All rights reserved.</p>
     </footer>
+                   
+    
+
 </body>
 </html>

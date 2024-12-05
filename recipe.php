@@ -1,3 +1,27 @@
+<?php
+// Database connection variables
+$servername = "localhost"; 
+$username = "sg3836";         
+$password = "fy0b2TnFyh1zcpIo";             
+$database = "sg3836_db"; 
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+   
+    $id = $_GET['id'];
+$where="where id=".$id;
+$sql = "SELECT * FROM recipes ".$where;
+$result = $conn->query($sql);
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +31,7 @@
     <link rel="stylesheet" href="recipe.css">
 </head>
 <body>
+    
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -17,65 +42,67 @@
     </nav>
 
     <main class="recipe-detail">
-        <section class="recipe-hero">
-            <div class="recipe-image">
-                <img src="img/recipe-image1.png" alt="Chipotle Chicken with Cilantro Rice">
-            </div>
-            <div class="recipe-info">
-                <h1>Chipotle Chicken & Cilantro Rice</h1>
-                <p>With Cotija Cheese & Poblano Pepper</p>
-                <div class="recipe-meta">
-                    <p><strong>Cook Time:</strong> 30 minutes</p>
-                </div>
-                <p class="recipe-description">
-                    A smoky, savory dish featuring tender chicken, zesty cilantro rice, and the creamy tang of cotija cheese.
-                </p>
-            </div>
-        </section>
+    <?php foreach ($result as $row):
+       $imageName=$row['recipe_name'];
+       $imageName=str_replace(" ","",$imageName);
+       $imageName=str_replace("&","",$imageName);
+       $imageName=str_replace("-","",$imageName);           
+       $imagePath="cookbook_images/" . $imageName."/";       
+       $imageName=$row['id']."-".$imageName;      
+       $imageName=$imagePath . $imageName;
+    
+        echo "<section class=\"recipe-hero\">";
+        echo   "<div class=\"recipe-image\">";
+        echo "<img src=\"" . $imageName . "-hero.webp\"" . " alt=\"Recipe Image\">";
+        
+         echo   "</div>";
+         echo   "<div class=\"recipe-info\">";
+          echo   "<h1>".$row['recipe_name']."</h1>";
+          echo     "<p>".$row['recipe_with']."</p>";
+           echo     "<div class=\"recipe-meta\">";
 
-        <section class="ingredients-section">
-            <h2>Ingredients</h2>
-            <div class="ingredients-image">
-                <img src="img/ingredients-placeholder.png" alt="Ingredients">
-            </div>
-            <ul>
-                <li>2 Chicken Breasts</li>
-                <li>1 Poblano Pepper</li>
-                <li>1/4 Cup Cilantro</li>
-                <li>1/4 Cup Cotija Cheese</li>
-                <li>1 Lime</li>
-                <li>1 Cup White Rice</li>
-                <li>2 Tbsp Chipotle Sauce</li>
-            </ul>
-        </section>
+           echo      " <p><strong>Cook Time : </strong>".$row['cook_time']."</p>";
+           echo      "<p><strong>Servings : </strong>".$row['servings']."</p>";
+           echo       "<p><strong>Cuisine :     </strong>".$row['cuisine']."</p>";
+           echo      "<p><strong>Meal Type : </strong>".$row['categories']."</p>";
 
-        <section class="steps-section">
-            <h2>Steps</h2>
-            <div class="step">
-                <img src="img/step1.png" alt="Step 1">
-                <p>Cook the rice and set aside.</p>
-            </div>
-            <div class="step">
-                <img src="img/step2.png" alt="Step 2">
-                <p>Roast the poblano pepper and prepare the chicken with the chipotle sauce.</p>
-            </div>
-            <div class="step">
-                <img src="img/step3.png" alt="Step 3">
-                <p>Mix the rice with cilantro and lime.</p>
-            </div>
-            <div class="step">
-                <img src="img/step4.png" alt="Step 4">
-                <p>Serve the cooked chicken with the roasted pepper and rice mixture.</p>
-            </div>
-            <div class="step">
-                <img src="img/step5.png" alt="Step 5">
-                <p>Garnish with Cotija cheese and additional cilantro if desired.</p>
-            </div>
-            <div class="step">
-                <img src="img/step6.png" alt="Step 6">
-                <p>Enjoy your delicious meal!</p>
-            </div>
-        </section>
+            echo    "</div>";
+             echo   "<p class=\"recipe-description\">";
+            echo $row["description"];
+            echo    "</p>";
+            echo "</div>";
+        echo "</section>";
+
+        echo "<section class=\"ingredients-section\">";
+            echo "<h2>Ingredients</h2>";
+            echo "<div class=\"ingredients-image\">";
+            echo "<img src=\"" . $imageName . "-ingredients.webp\"" . " alt=\"Recipe Image\">";
+        
+            echo "</div>";
+            $ingredients = explode("\n", $row['ingredients']);
+
+            echo "<ul>";
+            foreach ($ingredients as $ingredient) {
+                echo "<li>".$ingredient."</li>";
+            } 
+            echo "</ul>";
+
+        echo "</section>";
+        $steps = explode("*", $row['steps']);
+        for ($i = 1; $i < count($steps)+1; $i++)
+        {
+        echo "<section class=\"steps-section\">";
+        echo "<h2>Steps ".$i."</h2>";
+         echo   "<div class=\"step\">";
+         echo "<img src=\"" . $imageName . "-step".$i .".webp\"" . " alt=\"Recipe Image\">";
+        
+           echo    " <p>". $steps[$i-1]."</p>";
+           echo "</div>";
+
+      echo  "</section>";
+        }
+    endforeach;
+    ?>
     </main>
 
     <footer>
