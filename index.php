@@ -1,9 +1,9 @@
 <?php
 // Database connection variables
-$servername = "localhost"; // Replace with your server name
-$username = "root";         // Replace with your username
-$password = "";             // Replace with your password
-$database = "Recipe_viewer"; // Replace with your database name
+$servername = "localhost"; 
+$username = "sg3836";         
+$password = "fy0b2TnFyh1zcpIo";             
+$database = "sg3836_db"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -29,8 +29,8 @@ $result = $conn->query($sql);
 </head>
 <nav>
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="allrecipes.html">All Recipes</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="allrecipes.php">All Recipes</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="help.html">Help</a></li>
     </ul>
@@ -48,12 +48,12 @@ $result = $conn->query($sql);
             </div>
         </div>
         <div class="hero-img">
-            <img src="img/baking.png" alt="Baking Image"
+            <img src="baking.png" alt="Baking Image"
         </div>
     </header>
 
     <main>
-        <section class="recipe-cards">  <!-- there are 57 cards-->
+        <section class="recipe-cards">  
         <?php if (!empty($result)):
              foreach ($result as $row):
                 //$imageName=htmlspecialchars($row['recipe_name'] );

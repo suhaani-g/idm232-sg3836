@@ -9,8 +9,8 @@
 <body>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="allrecipes.html">All Recipes</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="allrecipes.php">All Recipes</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="help.html">Help</a></li>
         </ul>
