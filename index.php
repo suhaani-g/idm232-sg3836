@@ -13,7 +13,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 $query = isset($_GET['query']) ? trim($_GET['query']) : '';
 
 if ($query === '') {
@@ -36,14 +35,12 @@ if ($query === '') {
     $stmt->bind_param("sssssss", $query, $query, $query, $query, $query, $query, $query);
     $stmt->execute();
     $result = $stmt->get_result();
-    if ($result->num_rows==0){
+    if ($result->num_rows == 0) {
         header("Location: no-results.html");
         exit();
     }
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,19 +50,18 @@ if ($query === '') {
     <title>Online Cookbook</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<nav>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="allrecipes.php">All Recipes</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="help.html">Help</a></li>
-    </ul>
-</nav>
 <body>
+    <nav>
+        <button class="hamburger-menu" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
+        <ul id="nav-menu">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="allrecipes.php">All Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+        <button id="close-menu" class="close-menu" aria-label="Close navigation" onclick="toggleMenu()">✖</button>
+    </nav>
 
-
-   
-    
     <header class="hero-section">
         <div class="hero-content">
             <h1>Discover Delicious Recipes</h1>
@@ -78,52 +74,53 @@ if ($query === '') {
             </div>
         </div>
         <div class="hero-img">
-            <img src="baking.png" alt="Baking Image"
+            <img src="baking.png" alt="Baking Image">
         </div>
     </header>
 
     <main>
-        <section class="recipe-cards">  <!-- there are 57 cards-->
+        <section class="popular-dishes">
+            <h1>Popular Dishes</h1>
+        </section>
+        
+        <section class="recipe-cards">
+            <?php if (!empty($result)):
+                foreach ($result as $row):
+                    $imageName = str_replace([" ", "&", "-"], "", $row['recipe_name']);
+                    $imagePath = "cookbook_images/" . $imageName . "/";
+                    $imageName = $imagePath . $row['id'] . "-" . $imageName;
 
-        <?php if (!empty($result)):
-             foreach ($result as $row):
-                //$imageName=htmlspecialchars($row['recipe_name'] );
-                $imageName=$row['recipe_name'];
-                
-                $imageName=str_replace(" ","",$imageName);
-                $imageName=str_replace("&","",$imageName);
-                $imageName=str_replace("-","",$imageName);
-                
-                $imagePath="cookbook_images/" . $imageName."/";
-               
-                $imageName=$row['id']."-".$imageName;
-                //$imagePath=str_replace("&amp;","",$imagePath);
-                //$imageName=str_replace("&amp;","",$imageName);
-
-                $imageName=$imagePath . $imageName;
-
-                echo "<div class=\"recipe-card\">";
-                echo "<a href=\"recipe.php?id=" . htmlspecialchars($row['id']) . "\">";
-                
-                     echo "<img src=\"" . $imageName . "-hero.webp\"" . " alt=\"Recipe Image\">";
-                     echo "<h2>";
-                        echo htmlspecialchars($row['recipe_name']);
-                    echo "</h2>";
-                    echo "<p>";
-                        echo htmlspecialchars(substr($row['description'],0,70)) . ".....";
-                    echo "</p>";
-                echo "</a>";
-                echo "</div>\n";
-            
-            endforeach;
-          endif;
-         ?>   
+                    echo "<div class=\"recipe-card\">";
+                    echo "<a href=\"recipe.php?id=" . htmlspecialchars($row['id']) . "\">";
+                    echo "<img src=\"" . $imageName . "-hero.webp\" alt=\"Recipe Image\">";
+                    echo "<h2>" . htmlspecialchars($row['recipe_name']) . "</h2>";
+                    echo "<p>" . htmlspecialchars(substr($row['description'], 0, 70)) . ".....</p>";
+                    echo "</a>";
+                    echo "</div>\n";
+                endforeach;
+            endif; ?>   
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Online Cookbook. All rights reserved.</p>
     </footer>
-                   
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const closeMenu = document.getElementById('close-menu');
+
+            navMenu.classList.toggle('show');
+            closeMenu.style.display = navMenu.classList.contains('show') ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('show');
+                document.getElementById('close-menu').style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>

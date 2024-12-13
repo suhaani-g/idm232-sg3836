@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;500&family=Roboto:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +15,6 @@ body {
     line-height: 1.6;
 }
 
-/* Nav Bar */
 nav {
     background-color: #fff;
     padding: 15px 0;
@@ -30,6 +28,7 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    transition: all 0.3s ease-in-out;
 }
 
 nav ul li {
@@ -41,7 +40,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 1.1rem;
     font-family: 'Roboto', monospace;
-    font-weight: 100; /* Roboto Mono Thin */
+    font-weight: 100;
     padding: 10px 15px;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
@@ -51,7 +50,81 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Hero Section */
+.hamburger-menu {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #111;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        z-index: 1001;
+    }
+
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #nav-menu li {
+        margin: 20px 0;
+    }
+
+    #nav-menu li a {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        color: #111;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    #nav-menu li a:hover {
+        color: #555;
+    }
+
+    #nav-menu.show {
+        display: flex;
+    }
+}
+
+.popular-dishes h1 {
+    font-family: 'Forum', monospace;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    padding-left: 70px;
+}
+
 .hero-section {
     display: flex;
     align-items: center;
@@ -63,7 +136,7 @@ nav ul li a:hover {
 
 .hero-content {
     max-width: 50%;
-    padding:50px;
+    padding: 50px;
 }
 
 .hero-content h1 {
@@ -75,57 +148,23 @@ nav ul li a:hover {
 
 .hero-content p {
     font-size: 1.3rem;
-    font-weight: 300; /* Roboto Light */
+    font-weight: 300;
     color: #333;
     margin-bottom: 20px;
 }
 
-
-
 .hero-img {
-    max-width: 30%;  
+    max-width: 30%;
     height: auto;
     padding-left: 20px;
 }
 
 .hero-img img {
-    width: 100%;  
+    width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-/* Mobile View - Hero Image Behind and Darkened */
-@media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        position: relative;
-        padding: 0;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        z-index: 2;
-        padding: 20px;
-    }
-
-
-
-    .hero-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        
-        z-index: 1;
-    }
-
-}
-
-
-/* Search Bar */
 .search-bar {
     margin-top: 20px;
 }
@@ -152,7 +191,6 @@ nav ul li a:hover {
     background-color: #333;
 }
 
-/* Recipe Cards Section */
 .recipe-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -185,7 +223,7 @@ nav ul li a:hover {
 
 .recipe-card h2 {
     font-family: 'Roboto', monospace;
-    font-weight: 500; /* Roboto Mono Medium */
+    font-weight: 500;
     font-size: 1.4rem;
     color: #111;
     margin-top: 15px;
@@ -193,17 +231,16 @@ nav ul li a:hover {
 
 .recipe-card p {
     font-size: 1rem;
-    font-weight: 300; /* Roboto Light */
+    font-weight: 300;
     color: #666;
     margin-top: 10px;
 }
 
 .recipe-card a {
-    text-decoration: none; 
-    color: inherit; 
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Footer */
 footer {
     background-color: #f7f7f7;
     padding: 20px;
@@ -214,8 +251,24 @@ footer {
     margin-top: 30px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .hero-img {
+    max-width: 80%;
+    margin-top: 20px;
+    padding-left: 0;
+    }
+
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -225,8 +278,16 @@ footer {
     }
 
     .search-bar input {
-        width: 80%;
+        width: 90%;
+        padding: 15px;
+        font-size: 1rem;
     }
+    
+    .search-bar button {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+    
 }
 
 @media (max-width: 480px) {

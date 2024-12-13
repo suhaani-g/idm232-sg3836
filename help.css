@@ -16,37 +16,6 @@ body {
     line-height: 1.6;
 }
 
-nav {
-    background-color: #fff;
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #111;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-family: 'Roboto', monospace;
-    padding: 10px 15px;
-}
-
-nav ul li a:hover {
-    background-color: #ddd;
-    border-radius: 5px;
-}
 
 /* Help Page Layout */
 .help-container {
@@ -92,12 +61,7 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-.help-section img {
-    width: 60%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 20px;
-}
+
 
 hr {
     border: 0;
@@ -118,17 +82,7 @@ footer {
 }
 
 /* Responsive Design */
-@media (max-width: 992px) {
-    .help-section img {
-        width: 80%;
-    }
-}
-
 @media (max-width: 768px) {
-    .help-section img {
-        width: 90%;
-    }
-
     .help-hero h1 {
         font-size: 2.5rem;
     }

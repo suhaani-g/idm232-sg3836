@@ -16,7 +16,7 @@ body {
     line-height: 1.6;
 }
 
-/* Nav Bar */
+/* Nav Bar 
 nav {
     background-color: #fff;
     padding: 15px 0;
@@ -41,17 +41,19 @@ nav ul li a {
     text-decoration: none;
     font-size: 1.1rem;
     font-family: 'Roboto', monospace;
-    font-weight: 100; /* Roboto Mono Thin */
+    font-weight: 100; 
     padding: 10px 15px;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
+*/
 
 nav ul li a:hover {
     background-color: #ddd;
     border-radius: 5px;
 }
 
-/* Main Layout */
+
+
 /* Main Layout */
 .browse-recipes-container {
     display: flex;

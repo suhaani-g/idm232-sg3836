@@ -48,17 +48,38 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse All Recipes</title>
     <link rel="stylesheet" href="allrecipes.css">
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="allrecipes.php">All Recipes</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="help.html">Help</a></li>
-        </ul>
-    </nav>
+    <button class="hamburger-menu" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
+    <ul id="nav-menu">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="allrecipes.php">All Recipes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="help.html">Help</a></li>
+    </ul>
+    <button id="close-menu" class="close-menu" aria-label="Close navigation" onclick="toggleMenu()">✖</button>
+</nav>
+
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('nav-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        navMenu.classList.toggle('show');
+        closeMenu.style.display = navMenu.classList.contains('show') ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.remove('show');
+            document.getElementById('close-menu').style.display = 'none';
+        });
+    });
+</script>
+
 
     <!-- Main Container -->
     <main class="browse-recipes-container">
@@ -110,6 +131,7 @@ $result = $conn->query($sql);
                         $fullImagePath = $imagePath . $imageFileName;
                         ?>
                         <div class="recipe-card">
+                
                             <a href="recipe.php?id=<?php echo htmlspecialchars($row['id']); ?>">
                                 <img src="<?php echo htmlspecialchars($fullImagePath); ?>" alt="Recipe Image">
                                 <h2><?php echo htmlspecialchars($row['recipe_name']); ?></h2>

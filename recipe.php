@@ -29,17 +29,38 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Detail</title>
     <link rel="stylesheet" href="recipe.css">
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
     
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="allrecipes.php">All Recipes</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="help.html">Help</a></li>
-        </ul>
-    </nav>
+<nav>
+    <button class="hamburger-menu" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
+    <ul id="nav-menu">
+        <li><a href="index.php">Home</a></li>
+        <li><a href="allrecipes.php">All Recipes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="help.html">Help</a></li>
+    </ul>
+    <button id="close-menu" class="close-menu" aria-label="Close navigation" onclick="toggleMenu()">✖</button>
+</nav>
+
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('nav-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        navMenu.classList.toggle('show');
+        closeMenu.style.display = navMenu.classList.contains('show') ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('nav-menu').classList.remove('show');
+            document.getElementById('close-menu').style.display = 'none';
+        });
+    });
+</script>
+
 
     <main class="recipe-detail">
     <?php foreach ($result as $row):

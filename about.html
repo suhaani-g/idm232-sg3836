@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="nav.css">
 </head>
 <body>
     <nav>
-        <ul>
+        <button class="hamburger-menu" aria-label="Toggle navigation" onclick="toggleMenu()">☰</button>
+        <ul id="nav-menu">
             <li><a href="index.php">Home</a></li>
             <li><a href="allrecipes.php">All Recipes</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="help.html">Help</a></li>
         </ul>
+        <button id="close-menu" class="close-menu" aria-label="Close navigation" onclick="toggleMenu()">✖</button>
     </nav>
+    
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const closeMenu = document.getElementById('close-menu');
+    
+            navMenu.classList.toggle('show');
+            closeMenu.style.display = navMenu.classList.contains('show') ? 'block' : 'none';
+        }
+    
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('show');
+                document.getElementById('close-menu').style.display = 'none';
+            });
+        });
+    </script>
+    
 
     <main class="about-container">
         <section class="about-hero">
@@ -27,7 +48,7 @@
         <section class="about-content">
             <div class="about-text">
                 <h2>Crafting Delicious Experiences</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere. Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, vitae auctor mi erat non lectus.</p>
+                <p>Unleash the joy of cooking with thoughtfully curated recipes and tips to elevate your meals. From the freshest ingredients to the perfect blend of flavors, every dish becomes a work of art. Our platform celebrates the love of food, helping you create unforgettable moments around the table. Whether you're mastering a classic or exploring something new, the journey is as delightful as the destination.</p>
             </div>
             <div class="about-image">
                 <img src="img/about1.jpg" alt="Our journey">
@@ -42,7 +63,7 @@
             </div>
             <div class="about-text">
                 <h2>Inspiration Behind Our Recipes</h2>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                <p>Every recipe has a story to tell. From cherished family traditions to global culinary adventures, our recipes are inspired by the passion for bringing people together through food. We believe that great meals create lasting memories, and our goal is to share that joy with you. Let the flavors, techniques, and unique inspirations behind each dish spark your creativity in the kitchen!</p>
             </div>
         </section>
 
@@ -51,7 +72,7 @@
         <section class="about-content">
             <div class="about-text">
                 <h2>Our Commitment to Quality</h2>
-                <p>Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus.</p>
+                <p>At the heart of every recipe is our dedication to excellence. We carefully select the finest ingredients, test each recipe meticulously, and prioritize techniques that bring out the best in every dish. Our commitment to quality ensures that you can cook with confidence, knowing that every detail has been crafted to deliver exceptional flavor and a delightful experience.</p>
             </div>
             <div class="about-image">
                 <img src="img/about3.jpg" alt="Commitment to quality">
