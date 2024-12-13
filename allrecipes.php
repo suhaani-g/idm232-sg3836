@@ -45,8 +45,8 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browse All Recipes</title>
-    <link rel="stylesheet" href="allrecipes.css">
-    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="css/allrecipes.css">
+    <link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
 <nav>
@@ -83,31 +83,30 @@ if (!$result) {
         <div class="filter-option">
             <h3>Cooking Time</h3>
             <select id="cooktime" onchange="FilteredRecipes()">
-                <option value="any" <?php echo $cooktime === 'any' ? 'selected' : ''; ?>Any</option>
-                <option value="under-30" <?php echo $cooktime === 'under-30' ? 'selected' : ''; ?>Under 30 minutes</option>
-                <option value="30-60" <?php echo $cooktime === '30-60' ? 'selected' : ''; ?>30-60 minutes</option>
-                <option value="over-60" <?php echo $cooktime === 'over-60' ? 'selected' : ''; ?>Over 60 minutes</option>
+                <option value="any"<?php echo $cooktime === 'any' ? 'selected' : ''; ?> > Any </option>
+                <option value="under-30"<?php echo $cooktime === 'under-30' ? 'selected' : ''; ?> >Under 30 minutes</option>
+                <option value="30-60"<?php echo $cooktime === '30-60' ? 'selected' : ''; ?> >30-60 minutes</option>
+                <option value="over-60"<?php echo $cooktime === 'over-60' ? 'selected' : ''; ?> > Over 60 minutes</option>
             </select>
         </div>
         <div class="filter-option">
             <h3>Meal Type</h3>
             <select id="mealtype" onchange="FilteredRecipes()">
-                <option value="any" <?php echo $mealtype === 'any' ? 'selected' : ''; ?>Any</option>
-                <option value="breakfast" <?php echo $mealtype === 'breakfast' ? 'selected' : ''; ?>Breakfast</option>
-                <option value="lunch" <?php echo $mealtype === 'lunch' ? 'selected' : ''; ?>Lunch</option>
-                <option value="dinner" <?php echo $mealtype === 'dinner' ? 'selected' : ''; ?>Dinner</option>
-                <option value="dessert" <?php echo $mealtype === 'dessert' ? 'selected' : ''; ?>Dessert</option>
+                <option value="any"<?php echo $mealtype === 'any' ? 'selected' : ''; ?> > Any</option>
+                <option value="breakfast"<?php echo $mealtype === 'breakfast' ? 'selected' : ''; ?> > Breakfast</option>
+                <option value="lunch"<?php echo $mealtype === 'lunch' ? 'selected' : ''; ?> > Lunch</option>
+                <option value="dinner"<?php echo $mealtype === 'dinner' ? 'selected' : ''; ?> > Dinner</option>
             </select>
         </div>
         <div class="filter-option">
             <h3>Cuisine</h3>
             <select id="cuisine" onchange="FilteredRecipes()">
-                <option value="any" <?php echo $cuisine === 'any' ? 'selected' : ''; ?>Any</option>
-                <option value="asian" <?php echo $cuisine === 'asian' ? 'selected' : ''; ?>Asian</option>
-                <option value="italian" <?php echo $cuisine === 'italian' ? 'selected' : ''; ?>Italian</option>
-                <option value="mexican" <?php echo $cuisine === 'mexican' ? 'selected' : ''; ?>Mexican</option>
-                <option value="american" <?php echo $cuisine === 'american' ? 'selected' : ''; ?>American</option>
-                <option value="mediterranean" <?php echo $cuisine === 'mediterranean' ? 'selected' : ''; ?>Mediterranean</option>
+                <option value="any" <?php echo $cuisine === 'any' ? 'selected' : ''; ?> > Any</option>
+                <option value="asian" <?php echo $cuisine === 'asian' ? 'selected' : ''; ?> > Asian</option>
+                <option value="italian" <?php echo $cuisine === 'italian' ? 'selected' : ''; ?> > Italian</option>
+                <option value="mexican" <?php echo $cuisine === 'mexican' ? 'selected' : ''; ?> > Mexican</option>
+                <option value="american" <?php echo $cuisine === 'american' ? 'selected' : ''; ?> > American</option>
+                <option value="mediterranean" <?php echo $cuisine === 'mediterranean' ? 'selected' : ''; ?> > Mediterranean</option>
             </select>
         </div>
     </aside>
