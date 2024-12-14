@@ -74,7 +74,7 @@ if ($query === '') {
             </div>
         </div>
         <div class="hero-img">
-            <img src="baking.png" alt="Baking Image">
+            <img src="img/baking.png" alt="Baking Image">
         </div>
     </header>
 
