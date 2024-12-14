@@ -67,7 +67,7 @@ if ($query === '') {
             <h1>Discover Delicious Recipes</h1>
             <p>Discover dishes in our collection of recipes.</p>
             <div class="search-bar">
-                <form action="no-results.html" method="get"> 
+                <form action="index.php" method="get"> 
                     <input type="text" placeholder="Search recipes..." aria-label="Search" name="query">
                     <button type="submit">Search</button>
                 </form>
