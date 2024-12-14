@@ -1,7 +1,7 @@
 /* Navigation Bar Styles */
 nav {
     background-color: #fff;
-    padding: 15px 0;
+    padding: 35px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -107,4 +107,5 @@ nav ul li a:hover {
     #nav-menu.show ~ .close-menu {
         display: block; 
     }
+
 }
